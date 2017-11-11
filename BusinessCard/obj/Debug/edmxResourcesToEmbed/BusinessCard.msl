@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BusinessCardModelStoreContainer" CdmEntityContainer="BusinessCardEntities">
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="BusinessCardModel.Cards">
+        <MappingFragment StoreEntitySet="Cards">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Importance" ColumnName="Importance" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

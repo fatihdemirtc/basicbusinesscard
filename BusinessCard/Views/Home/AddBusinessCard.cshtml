@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Kartvizit Ekle";
+}
+
+@using (Html.BeginForm("AddBusinessCard", "Home", FormMethod.Post))
+{
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="">Kayıt Formu</legend>
+            </div>
+            <div class="control-group">
+                <!-- İsim -->
+                <label class="control-label" for="username">İsim</label>
+                <div class="controls">
+                    <input type="text" name="Name" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Soyisim -->
+                <label class="control-label" for="email">Soyisim</label>
+                <div class="controls">
+                    <input type="text" name="Surname" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Telefon-->
+                <label class="control-label" for="password">Telefon</label>
+                <div class="controls">
+                    <input type="text" name="Phone" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Adres -->
+                <label class="control-label" for="password_confirm">Adres</label>
+                <div class="controls">
+                    <input type="text" name="Address" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Email -->
+                <label class="control-label" for="password_confirm">Email</label>
+                <div class="controls">
+                    <input type="text" name="Email" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Toplantı yeri -->
+                <label class="control-label" for="password_confirm">Toplantı Yeri</label>
+                <div class="controls">
+                    <input type="text" name="Place" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Toplantı Zamanı -->
+                <label class="control-label" for="password_confirm">Toplantı Zamanı</label>
+                <div class="controls">
+                    <input type="text" name="Time" placeholder="" class="input-xlarge" required>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Önem -->
+                <label class="control-label" for="password_confirm">Önemi</label>
+                <div class="controls">
+                    @{
+                        var selectList = new SelectList(
+                            new List<SelectListItem>
+                            {
+                            new SelectListItem {Text = "Çok Önemli", Value = "5"},
+                            new SelectListItem {Text = "Önemli", Value = "4"},
+                            new SelectListItem {Text = "Normal", Value = "3"},
+                            new SelectListItem {Text = "Önemsiz", Value = "2"},
+                            new SelectListItem {Text = "Çok Önemsiz", Value = "1"},
+                            }, "Value", "Text");
+                    }
+                   @Html.DropDownList("Importance", selectList, new { @class = "css-class" })
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Kaydet</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+                        }

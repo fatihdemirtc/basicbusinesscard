@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Kartvizitlerim";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Telefon</th>
+            <th>Mail</th>
+            <th>Toplantı Yeri</th>
+            <th>Toplantı Tarihi</th>
+            <th>Önemi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Cards item in @Model)
+        {
+            <tr>
+                <th scope="row">@item.Name</th>
+                <td>@item.Surname</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.Place</td>
+                <td>@item.Time</td>
+                <td>
+                    @{
+                        switch (item.Importance)
+                        {
+                            case 5:
+                                <text>Çok önemli</text>
+                                break;
+                            case 4:
+                                <text>Önemli</text>
+                                break;
+                            case 3:
+                                <text>Normal</text>
+                                break;
+                            case 2:
+                                <text>Önemsiz</text>
+                                break;
+                            case 1:
+                                <text>Çok Önemsiz</text>
+                                break;
+                        }
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteCard", "Home"))
+                    {
+                        <input type="hidden" name="id" value=@item.id />
+                        <input type="submit" value="Sil" />
+                    }
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>
